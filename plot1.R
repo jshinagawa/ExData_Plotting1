@@ -36,9 +36,11 @@ setwd("U:/Profile/Documents/R/WORK/Exploratory Data Analysis")
 		unz(x, "household_power_consumption.txt")
 	}
 
-	data <- read.csv(unzip(infile), sep = ";", nrows=ndpm, na.strings = c("NA","?"), 
-	skip = frow, header = TRUE, quote = "\"", check.names = FALSE)
-	names(data) <- names(read.csv(unzip(infile), sep = ";", nrows=1, na.strings = "?", skip = 0  ))
+	data <- read.csv(
+		unzip(infile), sep = ";", nrows=ndpm, na.strings = c("NA","?"),
+		skip = frow, header = TRUE, quote = "\"", check.names = FALSE
+	)
+	names(data) <- names(read.csv(unzip(infile), sep = ";", nrows=1, na.strings = c("NA","?"), skip = 0  ))
 
 #2
 	dates <- as.Date(data$Date, "%d/%m/%Y")
